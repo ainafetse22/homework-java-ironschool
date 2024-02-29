@@ -87,4 +87,8 @@ public class School {
         }
         return profit;
     }
+
+    public void assignTeacher (String teacherId, String courseId) {
+        course_map.get(courseId).setTeacher(teacher_map.get(teacherId));
+    }
 }
