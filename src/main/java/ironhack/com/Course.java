@@ -34,11 +34,19 @@ public class Course {
         setTeacher(teacher);
     }
 
-    public void printInfo() {
-        System.out.println("Id: " + getId()
-                + ", Name: " + getName()
-                + ", Price: " + getPrice()
-                + ", Money Earned: " + getMoney_earned()
-                + ", Teacher: " +(getTeacher() != null ? getTeacher().getName() : "N/A"));
+    public boolean validateCourseInfo() {
+        if (this.name == null || this.name.isEmpty()) {
+            System.out.println("Course name cannot be empty.");
+            return false;
+        }
+        if (this.price <= 0) {
+            System.out.println("Course price must be greater than zero.");
+            return false;
+        }
+        if (this.teacher == null) {
+            System.out.println("Course must have a teacher assigned.");
+            return false;
+        }
+        return true;
     }
 }
