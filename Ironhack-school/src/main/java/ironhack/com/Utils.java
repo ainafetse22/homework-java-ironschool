@@ -1,6 +1,8 @@
 package ironhack.com;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
@@ -23,5 +25,12 @@ public class Utils {
             is_finish=true;
         }while(is_finish);
         return 0;
+    }
+
+    public static boolean validateName(String name) {
+        String regex = "^[A-Za-z\\s]+";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
     }
 }

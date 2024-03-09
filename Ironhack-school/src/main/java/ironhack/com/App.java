@@ -5,6 +5,7 @@ import java.util.*;
 
 import static ironhack.com.ReadCsvInfo.readObjectInfo;
 import static ironhack.com.ReadCsvInfo.readSchoolInfo;
+import static ironhack.com.Utils.validateName;
 import static ironhack.com.Utils.validate_number_of;
 
 public class App
@@ -19,8 +20,14 @@ public class App
             System.out.println("*******School Management System******");
 
             System.out.println( "Let's create an School");
-            System.out.println( "Enter a Name:");
-            scanner.nextLine();
+            System.out.println("Enter a Name:");
+            String schoolName = scanner.nextLine().trim(); // Capture and trim input
+
+            // Loop until a valid name is given
+            while (!validateName(schoolName)) {
+                System.out.println("Invalid Name. Please enter a valid name:");
+                schoolName = scanner.nextLine().trim();
+            }
 
             System.out.println("how many teachers should be created?");
             int teacher_number = validate_number_of(scanner);
